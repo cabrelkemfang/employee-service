@@ -1,0 +1,45 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER}
+spring:
+  application:
+    name: employee-service
+  datasource:
+    url: ${JDBC_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: ${DRIVER_CLASS_NAME}
+  jpa:
+    properties:
+      hibernate:
+        dialect: ${JPA_DIALECT}
+    hibernate:
+      ddl-auto: update
+  banner:
+    location: classpath:banner.txt
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_URL}
+  server:
+    port: 9193
+
+logging.pattern.level: "trace_id=%mdc{traceId} span_id=%mdc{spanId} trace_flags=%mdc{traceFlags} %p"
+
+
+
+
