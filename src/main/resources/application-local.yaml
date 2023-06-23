@@ -42,6 +42,8 @@ management:
   server:
     port: 9193
 
+logging.pattern.level: "trace_id=%mdc{traceId} span_id=%mdc{spanId} trace_flags=%mdc{traceFlags} %p"
+
 
 
 
