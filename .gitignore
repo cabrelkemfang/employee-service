@@ -33,4 +33,4 @@ build/
 .vscode/
 
 
-!**/src/main/resourcers/application-local.yaml
+!**/src/main/**/application-local.yaml
